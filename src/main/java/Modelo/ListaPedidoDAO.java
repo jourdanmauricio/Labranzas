@@ -158,5 +158,70 @@ public class ListaPedidoDAO {
         }
         return cantxprod;
     }    
+
+    public Object[][] listPend() {
+        Object [][] cantxmat = null; 
+        int filas=0;
+        
+    try {
+        java.sql.Connection acceDB = conexion.getConexion();
+        CallableStatement ps = acceDB.prepareCall("SELECT mat.material, SUM(spd.cantidad*mat.cant_material) as Cant \n" +
+            "FROM sub_pedido spd, pedido ped, materiales_producto mat, materiales mate \n" +
+            "WHERE ped.id = spd.pedido \n" +
+            "AND mat.prod_id = spd.id_producto \n" +
+            "AND mate.objeto = mat.material \n" +
+            "AND mate.categoria = 'Cemento' \n" +
+            "AND ped.estado in ('Activo', 'Pedido') \n" +
+            "AND spd.estado NOT IN ('Cancelado', 'Terminado', 'Entregado') \n" +
+            "and spd.cemento = 'N' \n" +
+            "GROUP BY mat.material \n" +
+            "union\n" +
+            "SELECT mat.material, SUM(spd.cantidad*mat.cant_material) as Cant \n" +
+            "FROM sub_pedido spd, pedido ped, materiales_producto mat, materiales mate \n" +
+            "WHERE ped.id = spd.pedido \n" +
+            "AND mat.prod_id = spd.id_producto \n" +
+            "AND mate.objeto = mat.material \n" +
+            "AND mate.categoria = 'Vidrio' \n" +
+            "AND ped.estado in ('Activo', 'Pedido') \n" +
+            "AND spd.estado NOT IN ('Cancelado', 'Terminado', 'Entregado') \n" +
+            "and spd.vidrio = 'N' \n" +
+            "GROUP BY mat.material \n" +
+            "union\n" +
+            "SELECT mat.material, SUM(spd.cantidad*mat.cant_material) as Cant \n" +
+            "FROM sub_pedido spd, pedido ped, materiales_producto mat, materiales mate \n" +
+            "WHERE ped.id = spd.pedido \n" +
+            "AND mat.prod_id = spd.id_producto \n" +
+            "AND mate.objeto = mat.material \n" +
+            "AND mate.categoria = 'Parafina' \n" +
+            "AND ped.estado in ('Activo', 'Pedido') \n" +
+            "AND spd.estado NOT IN ('Cancelado', 'Terminado', 'Entregado') \n" +
+            "and spd.parafina = 'N' \n" +
+            "GROUP BY mat.material ");
+        ResultSet matxcant = ps.executeQuery();
+        
+        if (matxcant.last()) {
+            filas = matxcant.getRow();
+        }
+            
+        cantxmat = new Object[filas][2];
+        
+        matxcant.first();
+        for (int i=0;i<filas;i++) {
+            cantxmat[i][0] = matxcant.getString(1);
+            cantxmat[i][1] = matxcant.getString(2);
+            matxcant.next();
+        }
+
+        ps.close();
+        acceDB.close();
+        }catch (SQLException e) {
+            System.out.println("Message:  " + e.getMessage());                       
+            System.out.println("SQLSTATE: " + e.getSQLState());            
+            System.out.println("Código de error SQL: " + e.getErrorCode()); 
+        } catch (IOException ex) {
+            Logger.getLogger(IngresosEgresosDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return cantxmat;
+    }    
            
 }

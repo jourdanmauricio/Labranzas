@@ -552,34 +552,36 @@ public class frmProductos extends javax.swing.JInternalFrame {
 
     private void jtProductoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtProductoMouseClicked
         if (evt.getClickCount() == 2 && !evt.isConsumed()) {
-            evt.consume();
-            //handle double click event.
-            SingletonProperties sp=SingletonProperties.getInstancia();
-            String path_prod= sp.getPropiedad("path_fotos_prod");
+            if (ori=="ListaPedido") {
+                evt.consume();
+                //handle double click event.
+                SingletonProperties sp=SingletonProperties.getInstancia();
+                String path_prod= sp.getPropiedad("path_fotos_prod");
 
-            frmListaPedidos.txtProd.setText(String.valueOf(jtProducto.getValueAt(jtProducto.getSelectedRow(), 0)));
-            frmListaPedidos.txtPrecio.setText(String.valueOf(jtProducto.getValueAt(jtProducto.getSelectedRow(), 7)));
-            String prod = String.valueOf(jtProducto.getValueAt(jtProducto.getSelectedRow(), 0));
-            String url = path_prod+prod+".jpg";
-            String notFoundUrl = path_prod + "noEncontrada.png";
-            File fotoAp = new File(url);
-            if(fotoAp.isFile()){
-                ImageIcon icon = new ImageIcon(url);  
-                frmListaPedidos.lblProdFoto.setIcon(icon);  
-            } else {
-                ImageIcon icon = new ImageIcon(notFoundUrl);  
-                frmListaPedidos.lblProdFoto.setIcon(icon);  
-            }    
-            frmListaPedidos.cmbCemento.setSelectedItem(String.valueOf(jtProducto.getValueAt(jtProducto.getSelectedRow(), 16)));
-            frmListaPedidos.cmbVidrio.setSelectedItem(String.valueOf(jtProducto.getValueAt(jtProducto.getSelectedRow(), 17)));
-            frmListaPedidos.cmbParafina.setSelectedItem(String.valueOf(jtProducto.getValueAt(jtProducto.getSelectedRow(), 18)));            
-            // Calcular total SPD
-            double cantidad=Double.parseDouble(frmListaPedidos.txtCant.getText());
-            double precio=Double.parseDouble(frmListaPedidos.txtPrecio.getText());
-            double total= cantidad*precio;
-            frmListaPedidos.txtTotalSpd.setText(""+total); 
-            
-            this.dispose();
+                frmListaPedidos.txtProd.setText(String.valueOf(jtProducto.getValueAt(jtProducto.getSelectedRow(), 0)));
+                frmListaPedidos.txtPrecio.setText(String.valueOf(jtProducto.getValueAt(jtProducto.getSelectedRow(), 7)));
+                String prod = String.valueOf(jtProducto.getValueAt(jtProducto.getSelectedRow(), 0));
+                String url = path_prod+prod+".jpg";
+                String notFoundUrl = path_prod + "noEncontrada.png";
+                File fotoAp = new File(url);
+                if(fotoAp.isFile()){
+                    ImageIcon icon = new ImageIcon(url);  
+                    frmListaPedidos.lblProdFoto.setIcon(icon);  
+                } else {
+                    ImageIcon icon = new ImageIcon(notFoundUrl);  
+                    frmListaPedidos.lblProdFoto.setIcon(icon);  
+                }    
+                frmListaPedidos.cmbCemento.setSelectedItem(String.valueOf(jtProducto.getValueAt(jtProducto.getSelectedRow(), 16)));
+                frmListaPedidos.cmbVidrio.setSelectedItem(String.valueOf(jtProducto.getValueAt(jtProducto.getSelectedRow(), 17)));
+                frmListaPedidos.cmbParafina.setSelectedItem(String.valueOf(jtProducto.getValueAt(jtProducto.getSelectedRow(), 18)));            
+                // Calcular total SPD
+                double cantidad=Double.parseDouble(frmListaPedidos.txtCant.getText());
+                double precio=Double.parseDouble(frmListaPedidos.txtPrecio.getText());
+                double total= cantidad*precio;
+                frmListaPedidos.txtTotalSpd.setText(""+total); 
+
+                this.dispose();
+            }
         }
     }//GEN-LAST:event_jtProductoMouseClicked
 

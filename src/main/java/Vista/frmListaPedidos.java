@@ -541,7 +541,7 @@ public class frmListaPedidos extends javax.swing.JInternalFrame {
 
         jLabel2.setText("Cliente:");
         jPanel3.add(jLabel2);
-        jLabel2.setBounds(361, 34, 68, 17);
+        jLabel2.setBounds(361, 34, 80, 17);
 
         txtNombre.setComponentPopupMenu(jPopupMenu);
         jPanel3.add(txtNombre);
@@ -645,7 +645,7 @@ public class frmListaPedidos extends javax.swing.JInternalFrame {
 
         jLabel4.setText("Pedido Id:");
         jPanel2.add(jLabel4);
-        jLabel4.setBounds(10, 20, 67, 17);
+        jLabel4.setBounds(10, 20, 80, 30);
 
         jtSpd.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -665,7 +665,7 @@ public class frmListaPedidos extends javax.swing.JInternalFrame {
 
         jLabel5.setText("Cliente:");
         jPanel8.add(jLabel5);
-        jLabel5.setBounds(220, 40, 54, 17);
+        jLabel5.setBounds(220, 27, 70, 30);
 
         btnBuscarCli.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -681,7 +681,7 @@ public class frmListaPedidos extends javax.swing.JInternalFrame {
 
         jLabel6.setText("Id:");
         jPanel8.add(jLabel6);
-        jLabel6.setBounds(40, 40, 40, 17);
+        jLabel6.setBounds(40, 27, 40, 30);
 
         txtClienteId.setEditable(false);
         jPanel8.add(txtClienteId);
@@ -1283,7 +1283,7 @@ public class frmListaPedidos extends javax.swing.JInternalFrame {
     private void txtCantActionPerformed(java.awt.event.ActionEvent evt) {
     }  
     private void btnBuscarCliMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarCliMouseClicked
-        frmClientes clientes = new frmClientes("pedido");
+        frmClientes clientes = new frmClientes("ListaPedido");
 
         frmPrincipal.Escritorio.add(clientes);
         try {
@@ -1368,31 +1368,31 @@ public class frmListaPedidos extends javax.swing.JInternalFrame {
     private void btnModificarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnModificarMouseClicked
 
         int rowPedido = jtListaPedidos.getSelectedRow();    
-        txtPedidoId.setText(String.valueOf(jtListaPedidos.getValueAt(rowPedido, 0)));
-        txtClienteId.setText(String.valueOf(jtListaPedidos.getValueAt(rowPedido, 5)));
-        txtCliente.setText(String.valueOf(jtListaPedidos.getValueAt(rowPedido, 6)));
+        txtPedidoId.setText(String.valueOf(jtListaPedidos.getValueAt(rowPedido, 1)));
+        txtClienteId.setText(String.valueOf(jtListaPedidos.getValueAt(rowPedido, 6)));
+        txtCliente.setText(String.valueOf(jtListaPedidos.getValueAt(rowPedido, 7)));
         try {
-            Date fechaParseada= new SimpleDateFormat("yyyy-MM-dd").parse(String.valueOf(jtListaPedidos.getValueAt(rowPedido, 7)));            
+            Date fechaParseada= new SimpleDateFormat("yyyy-MM-dd").parse(String.valueOf(jtListaPedidos.getValueAt(rowPedido, 8)));            
             dtFventa.setDate(fechaParseada);
-            Date fechaParseada2= new SimpleDateFormat("yyyy-MM-dd").parse(String.valueOf(jtListaPedidos.getValueAt(rowPedido, 8)));
+            Date fechaParseada2= new SimpleDateFormat("yyyy-MM-dd").parse(String.valueOf(jtListaPedidos.getValueAt(rowPedido, 9)));
             dtFentrega.setDate(fechaParseada2);
-            Date fechaParseada3= new SimpleDateFormat("yyyy-MM-dd").parse(String.valueOf(jtListaPedidos.getValueAt(rowPedido, 20)));
+            Date fechaParseada3= new SimpleDateFormat("yyyy-MM-dd").parse(String.valueOf(jtListaPedidos.getValueAt(rowPedido, 21)));
             dtCita.setDate(fechaParseada3);
         } catch (ParseException ex) {
             ex.printStackTrace();
         }
-        cmbFact.setSelectedItem(String.valueOf(jtListaPedidos.getValueAt(rowPedido, 13)));
-        cmbEnvio.setSelectedItem(String.valueOf(jtListaPedidos.getValueAt(rowPedido, 17)));
-        cmbFPago.setSelectedItem(String.valueOf(jtListaPedidos.getValueAt(rowPedido, 14)));        
-        txtDomEntrega.setText(String.valueOf(jtListaPedidos.getValueAt(rowPedido, 18)));
-        txtObservacion.setText(String.valueOf(jtListaPedidos.getValueAt(rowPedido, 21)));
-        cmbEstado.setSelectedItem(String.valueOf(jtListaPedidos.getValueAt(rowPedido, 9)));
-        txtSubTotal.setText(String.valueOf(jtListaPedidos.getValueAt(rowPedido, 11)));
-        txtTotal.setText(String.valueOf(jtListaPedidos.getValueAt(rowPedido, 13)));
-        txtPDesc.setText(String.valueOf(jtListaPedidos.getValueAt(rowPedido, 12)));
-        txtSenia.setText(String.valueOf(jtListaPedidos.getValueAt(rowPedido, 10)));
-        txtSaldo.setText(String.valueOf(jtListaPedidos.getValueAt(rowPedido, 14)));
-        tspd.visualizarSpd(jtSpd, String.valueOf(jtListaPedidos.getValueAt(rowPedido, 0)));
+        cmbFact.setSelectedItem(String.valueOf(jtListaPedidos.getValueAt(rowPedido, 14)));
+        cmbEnvio.setSelectedItem(String.valueOf(jtListaPedidos.getValueAt(rowPedido, 18)));
+        cmbFPago.setSelectedItem(String.valueOf(jtListaPedidos.getValueAt(rowPedido, 15)));        
+        txtDomEntrega.setText(String.valueOf(jtListaPedidos.getValueAt(rowPedido, 19)));
+        txtObservacion.setText(String.valueOf(jtListaPedidos.getValueAt(rowPedido, 22)));
+        cmbEstado.setSelectedItem(String.valueOf(jtListaPedidos.getValueAt(rowPedido, 10)));
+        txtSubTotal.setText(String.valueOf(jtListaPedidos.getValueAt(rowPedido, 12)));
+        txtTotal.setText(String.valueOf(jtListaPedidos.getValueAt(rowPedido, 14)));
+        txtPDesc.setText(String.valueOf(jtListaPedidos.getValueAt(rowPedido, 13)));
+        txtSenia.setText(String.valueOf(jtListaPedidos.getValueAt(rowPedido, 11)));
+        txtSaldo.setText(String.valueOf(jtListaPedidos.getValueAt(rowPedido, 15)));
+        tspd.visualizarSpd(jtSpd, String.valueOf(jtListaPedidos.getValueAt(rowPedido, 1)));
 
         LlenarSpd();
         jTabbedPane1.setEnabledAt(1, true);
@@ -1409,7 +1409,7 @@ public class frmListaPedidos extends javax.swing.JInternalFrame {
         int row = jtListaPedidos.getSelectedRow();
         int rptaElimina = JOptionPane.showConfirmDialog(null, "Desea eliminar el pedido: " + String.valueOf(jtListaPedidos.getValueAt(row, 0) + "?"));
         if (rptaElimina==0) {
-            pedido.eliminarPedido(String.valueOf(jtListaPedidos.getValueAt(row, 0)));
+            pedido.eliminarPedido(String.valueOf(jtListaPedidos.getValueAt(row, 1)));
             tlistaped.visualizarListaPedido(jtListaPedidos, estado, nombre, userML);
         }
     }//GEN-LAST:event_btnEliminarMouseClicked
@@ -1423,7 +1423,7 @@ public class frmListaPedidos extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtPedidoIdActionPerformed
 
     private void btnBuscarProdMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarProdMouseClicked
-        frmProductos producto = new frmProductos("pedido");
+        frmProductos producto = new frmProductos("ListaPedido");
 
         frmPrincipal.Escritorio.add(producto);
         try {
@@ -1538,7 +1538,7 @@ public class frmListaPedidos extends javax.swing.JInternalFrame {
         String referente = txtReferente.getText();
         String dni = txtDniE.getText();
         String telefono = txtTelefonoE.getText();
-        String domEntrega = txtDomEntrega.getText();
+        String domEntrega = txtDomicilioEntrega.getText();
         String localidad = txtLocalidad.getText();                
         String codigoPostal = txtCodigoPostal.getText();        
         String provincia = txtProvincia.getText();        

@@ -3,8 +3,12 @@ package Vista;
 import Modelo.PendientesDAO;
 import Modelo.SingletonProperties;
 import Tabla.TablaPendientes;
+import java.awt.Dimension;
 import java.awt.print.PrinterException;
+import java.beans.PropertyVetoException;
 import java.text.MessageFormat;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -108,6 +112,11 @@ public class frmPendientes extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jtPendientes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jtPendientesMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jtPendientes);
 
         getContentPane().add(jScrollPane1);
@@ -118,7 +127,7 @@ public class frmPendientes extends javax.swing.JInternalFrame {
 
         jLabel1.setText("Pendiente:");
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(18, 34, 76, 17);
+        jLabel1.setBounds(18, 34, 100, 17);
 
         cmbSector.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cemento", "Vidrio", "Parafina" }));
         jPanel1.add(cmbSector);
@@ -203,18 +212,18 @@ public class frmPendientes extends javax.swing.JInternalFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(21, 21, 21)
-                .addComponent(jLabel2)
-                .addGap(2, 2, 2)
-                .addComponent(cmbCemento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(54, 54, 54)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cmbCemento, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(43, 43, 43)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(2, 2, 2)
-                .addComponent(cmbVidrio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(44, 44, 44)
-                .addComponent(jLabel4)
-                .addGap(4, 4, 4)
-                .addComponent(cmbParafina, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addComponent(cmbVidrio, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cmbParafina, 0, 59, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -234,7 +243,7 @@ public class frmPendientes extends javax.swing.JInternalFrame {
         );
 
         getContentPane().add(jPanel3);
-        jPanel3.setBounds(410, 530, 490, 70);
+        jPanel3.setBounds(410, 530, 530, 70);
 
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
@@ -300,6 +309,22 @@ public class frmPendientes extends javax.swing.JInternalFrame {
                JOptionPane.showMessageDialog(null, "No se ha podido imprimir correctamente, intentalo más tarde.");
            }                 
     }//GEN-LAST:event_btnImprimirMouseClicked
+
+    private void jtPendientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtPendientesMouseClicked
+
+        if (evt.getClickCount() == 2 && !evt.isConsumed()) {
+            //evt.consume();
+            //handle double click event.
+            frmPendientesCVP pendientes = new frmPendientesCVP();
+
+            frmPrincipal.Escritorio.add(pendientes);
+            Dimension desktopSize = frmPrincipal.Escritorio.getSize();
+            Dimension FrameSize = pendientes.getSize();
+            pendientes.setLocation((desktopSize.width - FrameSize.width)/2, (desktopSize.height- FrameSize.height)/2);
+            pendientes.toFront();
+            pendientes.setVisible(true);
+        }
+    }//GEN-LAST:event_jtPendientesMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

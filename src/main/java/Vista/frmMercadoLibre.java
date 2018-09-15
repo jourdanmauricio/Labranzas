@@ -25,7 +25,6 @@ public class frmMercadoLibre extends javax.swing.JInternalFrame {
         initComponents();
         String redirectUrl = m.getAuthUrl("https://labranzas.com.ar/index.php",Meli.AuthUrls.MLA);
         System.out.println(redirectUrl);
-
         
     }
 

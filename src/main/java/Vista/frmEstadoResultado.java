@@ -1,17 +1,20 @@
 package Vista;
 
 import Tabla.TablaCantPorProd;
+import Tabla.TablaPendientesCPV;
 import Tabla.TablaResultPorEstado;
 
 public class frmEstadoResultado extends javax.swing.JInternalFrame {
 
     TablaResultPorEstado trpe = new TablaResultPorEstado();
     TablaCantPorProd tcpp = new TablaCantPorProd();
+    TablaPendientesCPV tpcpv = new TablaPendientesCPV();
     
     public frmEstadoResultado() {
         initComponents();
         trpe.visualizarPorEstado(jtPorEstado);
         tcpp.visualizarPorProd(jtCantProd);
+        tpcpv.visualizarPorProd(jtPendientesCPV);
     }
 
     @SuppressWarnings("unchecked")
@@ -24,6 +27,9 @@ public class frmEstadoResultado extends javax.swing.JInternalFrame {
         jPanel2 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jtCantProd = new javax.swing.JTable();
+        jPanel3 = new javax.swing.JPanel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jtPendientesCPV = new javax.swing.JTable();
 
         setClosable(true);
         setIconifiable(true);
@@ -74,7 +80,29 @@ public class frmEstadoResultado extends javax.swing.JInternalFrame {
         jScrollPane2.setBounds(20, 20, 220, 540);
 
         getContentPane().add(jPanel2);
-        jPanel2.setBounds(400, 10, 260, 570);
+        jPanel2.setBounds(380, 10, 260, 570);
+
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Pendientes x material"));
+        jPanel3.setLayout(null);
+
+        jtPendientesCPV.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2"
+            }
+        ));
+        jScrollPane3.setViewportView(jtPendientesCPV);
+
+        jPanel3.add(jScrollPane3);
+        jScrollPane3.setBounds(20, 20, 380, 540);
+
+        getContentPane().add(jPanel3);
+        jPanel3.setBounds(660, 10, 420, 570);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -83,9 +111,12 @@ public class frmEstadoResultado extends javax.swing.JInternalFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     public javax.swing.JTable jtCantProd;
+    public javax.swing.JTable jtPendientesCPV;
     public javax.swing.JTable jtPorEstado;
     // End of variables declaration//GEN-END:variables
 }

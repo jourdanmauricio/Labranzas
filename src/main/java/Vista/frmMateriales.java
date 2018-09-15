@@ -213,39 +213,39 @@ public class frmMateriales extends javax.swing.JInternalFrame {
 
         jLabel1.setText("Id:");
         jPanel3.add(jLabel1);
-        jLabel1.setBounds(10, 30, 40, 17);
+        jLabel1.setBounds(10, 30, 40, 30);
 
         jLabel2.setText("Objeto:");
         jPanel3.add(jLabel2);
-        jLabel2.setBounds(10, 70, 70, 17);
+        jLabel2.setBounds(10, 70, 70, 20);
 
         jLabel3.setText("Descripción:");
         jPanel3.add(jLabel3);
-        jLabel3.setBounds(10, 120, 100, 17);
+        jLabel3.setBounds(10, 107, 100, 30);
 
         jLabel4.setText("Categoría:");
         jPanel3.add(jLabel4);
-        jLabel4.setBounds(10, 160, 90, 17);
+        jLabel4.setBounds(10, 147, 90, 30);
 
         jLabel5.setText("Cantidad:");
         jPanel3.add(jLabel5);
-        jLabel5.setBounds(420, 160, 80, 17);
+        jLabel5.setBounds(420, 157, 80, 20);
 
         jLabel6.setText("Stock:");
         jPanel3.add(jLabel6);
-        jLabel6.setBounds(10, 200, 70, 20);
+        jLabel6.setBounds(10, 200, 70, 30);
 
         jLabel7.setText("Stock Min:");
         jPanel3.add(jLabel7);
-        jLabel7.setBounds(220, 200, 80, 20);
+        jLabel7.setBounds(220, 200, 80, 30);
 
         jLabel8.setText("Stock Max:");
         jPanel3.add(jLabel8);
-        jLabel8.setBounds(420, 200, 80, 20);
+        jLabel8.setBounds(420, 200, 80, 30);
 
         jLabel9.setText("Proveedor:");
         jPanel3.add(jLabel9);
-        jLabel9.setBounds(10, 240, 90, 17);
+        jLabel9.setBounds(10, 240, 90, 30);
         jPanel3.add(txtId);
         txtId.setBounds(100, 30, 98, 27);
         jPanel3.add(txtObjeto);

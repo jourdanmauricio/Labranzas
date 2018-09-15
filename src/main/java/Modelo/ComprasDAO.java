@@ -54,7 +54,7 @@ public class ComprasDAO {
         ArrayList<String> categorias = new ArrayList<String>();
         try {
             Connection acceDB = conexion.getConexion();
-            CallableStatement ps = acceDB.prepareCall("select categoria from materiales_categoria");
+            CallableStatement ps = acceDB.prepareCall("select categoria from materiales_categoria order by categoria");
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 categorias.add(rs.getString("categoria"));
@@ -75,7 +75,7 @@ public class ComprasDAO {
         ArrayList<String> proveedores = new ArrayList<String>();
         try {
             Connection acceDB = conexion.getConexion();
-            CallableStatement ps = acceDB.prepareCall("select razon_social from proveedores");
+            CallableStatement ps = acceDB.prepareCall("select razon_social from proveedores order by razon_social");
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 proveedores.add(rs.getString("razon_social"));
@@ -96,7 +96,7 @@ public class ComprasDAO {
         ArrayList<String> insumos = new ArrayList<String>();
         try {
             Connection acceDB = conexion.getConexion();
-            CallableStatement ps = acceDB.prepareCall("select objeto from materiales");
+            CallableStatement ps = acceDB.prepareCall("select objeto from materiales order by objeto");
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 insumos.add(rs.getString("objeto"));
@@ -127,7 +127,7 @@ public class ComprasDAO {
         
         try {
             Connection acceDB = conexion.getConexion();
-            CallableStatement ps = acceDB.prepareCall("Select * from compras where 1 = 1 "+condicion+" order by id desc");
+            CallableStatement ps = acceDB.prepareCall("Select * from compras where 1 = 1 "+condicion+" order by fecha_compra desc");
             ResultSet rs = ps.executeQuery();
             
             while (rs.next()) {

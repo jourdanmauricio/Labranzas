@@ -188,7 +188,7 @@ public class frmClientes extends javax.swing.JInternalFrame {
 
         jLabel11.setText("Nombre:");
         jPanel5.add(jLabel11);
-        jLabel11.setBounds(6, 34, 61, 17);
+        jLabel11.setBounds(6, 34, 80, 17);
 
         txtBusNom.setComponentPopupMenu(jPopupMenu);
         jPanel5.add(txtBusNom);
@@ -196,7 +196,7 @@ public class frmClientes extends javax.swing.JInternalFrame {
 
         jLabel12.setText("User ML:");
         jPanel5.add(jLabel12);
-        jLabel12.setBounds(355, 34, 60, 17);
+        jLabel12.setBounds(355, 34, 80, 17);
 
         txtBusUser.setComponentPopupMenu(jPopupMenu);
         jPanel5.add(txtBusUser);
@@ -489,17 +489,19 @@ public class frmClientes extends javax.swing.JInternalFrame {
     private void jtClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtClienteMouseClicked
                 
         if (evt.getClickCount() == 2 && !evt.isConsumed()) {
-            evt.consume();
-            //handle double click event.
-            frmListaPedidos.txtCliente.setText(String.valueOf(jtCliente.getValueAt(jtCliente.getSelectedRow(), 1)));
-            frmListaPedidos.txtClienteId.setText(String.valueOf(jtCliente.getValueAt(jtCliente.getSelectedRow(), 0)));
-            frmListaPedidos.txtDomEntrega.setText(String.valueOf(jtCliente.getValueAt(jtCliente.getSelectedRow(), 7)));
-            if (String.valueOf(jtCliente.getValueAt(jtCliente.getSelectedRow(), 7)).equals("Caba")) {
-                frmListaPedidos.cmbEnvio.setSelectedItem("N");
-            } else {
-                frmListaPedidos.cmbEnvio.setSelectedItem("S");
+            if (ori=="ListaPedido") {
+                evt.consume();
+                //handle double click event.
+                frmListaPedidos.txtCliente.setText(String.valueOf(jtCliente.getValueAt(jtCliente.getSelectedRow(), 1)));
+                frmListaPedidos.txtClienteId.setText(String.valueOf(jtCliente.getValueAt(jtCliente.getSelectedRow(), 0)));
+                frmListaPedidos.txtDomEntrega.setText(String.valueOf(jtCliente.getValueAt(jtCliente.getSelectedRow(), 7)));
+                if (String.valueOf(jtCliente.getValueAt(jtCliente.getSelectedRow(), 7)).equals("Caba")) {
+                    frmListaPedidos.cmbEnvio.setSelectedItem("N");
+                } else {
+                    frmListaPedidos.cmbEnvio.setSelectedItem("S");
+                }
+                this.dispose();
             }
-            this.dispose();
         }
     }//GEN-LAST:event_jtClienteMouseClicked
 

@@ -4,6 +4,8 @@ import Modelo.GeografiaDAO;
 import Modelo.SingletonProperties;
 import Modelo.TransporteLocalidadDAO;
 import Tabla.TablaTranspoteLocalidad;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.beans.PropertyVetoException;
 import java.util.ArrayList;
 import java.util.logging.Level;
@@ -37,6 +39,14 @@ public class frmTransporteLocalidad extends javax.swing.JInternalFrame {
             cmbBusProvincia.addItem(provincia.get(i));
         }
         texp.visualizarTransporteLocalidad(jtTransLoc, "*", "");  
+        
+        cmbBusProvincia.addItemListener(new ItemListener(){
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                texp.visualizarTransporteLocalidad(jtTransLoc, (String)cmbBusProvincia.getSelectedItem(), txtBusLocalidad.getText());
+            }
+        });
+
     }
 
     @SuppressWarnings("unchecked")
@@ -219,6 +229,8 @@ public class frmTransporteLocalidad extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jMFindActionPerformed
 
     private void btnLimpiarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLimpiarMouseClicked
+        cmbBusProvincia.setSelectedItem("*");
+        txtBusLocalidad.setText("");
         texp.visualizarTransporteLocalidad(jtTransLoc, "*", "");  
     }//GEN-LAST:event_btnLimpiarMouseClicked
 

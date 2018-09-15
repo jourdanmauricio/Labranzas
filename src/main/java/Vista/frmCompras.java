@@ -186,7 +186,7 @@ public class frmCompras extends javax.swing.JInternalFrame {
 
         cmbBusCat.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jPanel3.add(cmbBusCat);
-        cmbBusCat.setBounds(90, 30, 240, 27);
+        cmbBusCat.setBounds(100, 30, 280, 27);
 
         btnListar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -198,15 +198,15 @@ public class frmCompras extends javax.swing.JInternalFrame {
 
         jLabel10.setText("Categoria:");
         jPanel3.add(jLabel10);
-        jLabel10.setBounds(10, 40, 80, 17);
+        jLabel10.setBounds(10, 27, 80, 30);
 
         jLabel11.setText("Proveedor:");
         jPanel3.add(jLabel11);
-        jLabel11.setBounds(360, 40, 80, 17);
+        jLabel11.setBounds(480, 30, 100, 30);
 
         cmbBusProv.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jPanel3.add(cmbBusProv);
-        cmbBusProv.setBounds(450, 30, 170, 27);
+        cmbBusProv.setBounds(570, 30, 380, 27);
 
         jtCompra.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -355,45 +355,45 @@ public class frmCompras extends javax.swing.JInternalFrame {
 
         jLabel2.setText("Fecha:");
         jPanel4.add(jLabel2);
-        jLabel2.setBounds(18, 77, 46, 17);
+        jLabel2.setBounds(18, 77, 70, 17);
 
         txtId.setEditable(false);
         jPanel4.add(txtId);
-        txtId.setBounds(113, 29, 122, 27);
+        txtId.setBounds(113, 29, 160, 27);
 
         jLabel3.setText("Insumo:");
         jPanel4.add(jLabel3);
-        jLabel3.setBounds(20, 130, 54, 17);
+        jLabel3.setBounds(20, 130, 80, 17);
 
         cmbInsumo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jPanel4.add(cmbInsumo);
-        cmbInsumo.setBounds(120, 130, 425, 27);
+        cmbInsumo.setBounds(115, 130, 430, 27);
 
         jLabel4.setText("Cantidad:");
         jPanel4.add(jLabel4);
-        jLabel4.setBounds(18, 189, 66, 17);
+        jLabel4.setBounds(18, 189, 90, 17);
 
         jLabel5.setText("Precio:");
         jPanel4.add(jLabel5);
-        jLabel5.setBounds(530, 189, 48, 17);
+        jLabel5.setBounds(350, 190, 60, 17);
 
         jLabel6.setText("Total:");
         jPanel4.add(jLabel6);
-        jLabel6.setBounds(714, 189, 40, 17);
+        jLabel6.setBounds(714, 189, 60, 17);
         jPanel4.add(txtCantidad);
-        txtCantidad.setBounds(114, 184, 120, 27);
+        txtCantidad.setBounds(120, 180, 130, 27);
         jPanel4.add(txtPrecio);
-        txtPrecio.setBounds(590, 184, 112, 27);
+        txtPrecio.setBounds(420, 180, 112, 27);
         jPanel4.add(txtTotal);
         txtTotal.setBounds(766, 184, 138, 27);
 
         jLabel7.setText("Proveedor:");
         jPanel4.add(jLabel7);
-        jLabel7.setBounds(18, 234, 77, 17);
+        jLabel7.setBounds(18, 234, 100, 17);
 
         jLabel8.setText("Ovservación:");
         jPanel4.add(jLabel8);
-        jLabel8.setBounds(18, 279, 89, 17);
+        jLabel8.setBounds(18, 279, 110, 17);
 
         cmbProveedor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jPanel4.add(cmbProveedor);
@@ -403,7 +403,7 @@ public class frmCompras extends javax.swing.JInternalFrame {
 
         jLabel9.setText("Categoria:");
         jPanel4.add(jLabel9);
-        jLabel9.setBounds(714, 127, 72, 17);
+        jLabel9.setBounds(714, 127, 100, 17);
 
         cmbCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jPanel4.add(cmbCategoria);
@@ -434,9 +434,9 @@ public class frmCompras extends javax.swing.JInternalFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(263, Short.MAX_VALUE))
         );
 

@@ -47,7 +47,7 @@ public class MyRender extends DefaultTableCellRenderer  {
         int dia = fechaAct.get(Calendar.DAY_OF_MONTH);
 
         SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
-        String fecha = table.getValueAt(row, 8).toString();
+        String fecha = table.getValueAt(row, 9).toString();
         Date fechaEntrega = null;
         Date fechaActual = null;
         try {
@@ -63,7 +63,7 @@ public class MyRender extends DefaultTableCellRenderer  {
         long diffDays = diffTime / (1000 * 60 * 60 * 24);
         int days = (int)( (fechaActual.getTime() - fechaEntrega.getTime()) / (1000 * 60 * 60 * 24));
         
-        if (tituloColumna.equals("F Entrega")&&(!table.getValueAt(row, 9).toString().equals("Entregado"))) {
+        if (tituloColumna.equals("F Entrega")&&(!table.getValueAt(row, 10).toString().equals("Entregado"))) {
             if (diffDays==0) {    
                 cell.setForeground(Color.green);
             }
@@ -81,13 +81,13 @@ public class MyRender extends DefaultTableCellRenderer  {
                cell.setForeground(Color.BLACK);
         }
         if (tituloColumna.equals("Estado")) {
-           if (table.getValueAt(row, 9).toString().equals("Activo")) {    
+           if (table.getValueAt(row, 10).toString().equals("Activo")) {    
                cell.setForeground(Color.YELLOW);
             }
-            if (table.getValueAt(row, 9).toString().equals("Terminado")) {    
+            if (table.getValueAt(row, 10).toString().equals("Terminado")) {    
                cell.setForeground(Color.ORANGE);
             }
-//            if (table.getValueAt(row, 9).toString().equals("Entregado")) {    
+//            if (table.getValueAt(row, 10).toString().equals("Entregado")) {    
 //               cell.setForeground(Color.GREEN);
 //            }
 
